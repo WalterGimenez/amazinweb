@@ -21,7 +21,7 @@ main{
 .aelogo{
     width: 200px;
     height: 60px;
-    margin: 10% 25%;
+    margin: 10% 40%;
 }
 
 .column{
@@ -43,13 +43,46 @@ main{
 }
 
 .button:hover{
-    background-color: black;
+    background-color: rgb(95, 193, 193);
     font-style: italic;
     border-radius: 15px;
-    color: white;
 }
 
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
+.imageh,.bodyh{
+    min-height: 450px;
+}
+
+.colbackcol{
+    background-color: #FFFDDE;
+}
+
+.imageh{
+    margin-left: 1%;
+}
+
+.cbcenter {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    height: 100%;
+}
+
+.c-t{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+p{
+    font-size: 1.3rem;
+}
 
 
 
