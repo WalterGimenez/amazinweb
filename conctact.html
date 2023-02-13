@@ -18,8 +18,8 @@
                 <div class="col column">
                     <a href="index.html" class="button">Home</a>
                     <a href="upcoming.html" class="button">Upcomimg Events</a>
-                    <a href="#" class="button">Past Events</a> 
-                    <a href="conctact.html" class="button">Conctact</a>
+                    <a href="past.htm" class="button">Past Events</a> 
+                    <a href="#" class="button">Conctact</a>
                     <a href="" class="button">Details</a>
                     <a href="" class="button">Stats</a>
                 </div>
@@ -30,28 +30,31 @@
         <section>
             <div class="hm">
                 <div class="besidel">
-                    <a href="./upcoming.html" class="pgrow"><</a>
+                    <a href="past.htm" class="pgrow"><</a>
                 </div>
-                <div class="h1center"><h1>Past Events</h1></div>
-                <div class="besider"><a href="./conctact.html" class="pgrow">></a></div>
+                <div class="h1center"><h1>Contact us</h1></div>
+                <div class="besider"><p class="pgrow">></p></div>
             </div>
         </section>
         <section>
-            <div class="card mb-3">
-                <div class="row no-gutters">
-                    <div class="col-md-6 colbackcol">
-                        <img src="./assets/img/Cinema.jpg" class="card-img imageh" alt="cinema's photo">
-                    </div>
-                    <div class="col-md-6 colbackcol">
-                        <div class="card-body cbcenter">
-                            <h5 class="card-title c-t">Cinema's event</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem magni non impedit id harum maxime. Cum similique omnis deserunt animi quasi voluptates ducimus esse? Facilis sint laboriosam accusamus ab placeat.</p>
-                            <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui tempora nostrum amet animi aliquid odio iste, consequuntur accusamus, sapiente magnam totam fugit aperiam iusto dolores quibusdam at architecto ea alias?</p>
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi quo debitis, nobis minima aliquam ipsam modi quidem et autem. Rerum totam sequi voluptate praesentium ipsum ea, blanditiis corporis. Eos, facilis!</p>
-                        </div>
-                    </div>
+            <form class="formw">
+                <div class="mb-3">
+                    <label for="inputname" class="form-label">Name:</label>
+                    <input type="text" class="form-control" id="inputname" aria-describedby="name" required>
                 </div>
-            </div>
+                <div class="mb-3">
+                    <label for="inputmail" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="inputmail" required>
+                </div>
+                <div  class="mb-3">
+                    <label for="inputmess" class="form-label">Message</label>
+                    <textarea class="form-control" aria-label="With textarea" id="inputmess"></textarea>
+                </div>
+                <div class="mb-3 submitend">
+                    <button type="submit" class="btn btn-primary buttonsub">Submit</button>
+                </div>
+                
+            </form>
         </section>
         
     </main>

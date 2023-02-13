@@ -9,7 +9,7 @@
 }
 
 header{
-    min-height: 15vh;
+    min-height: 10vh;
     background-color: #D9D7F1;
 }
 
@@ -17,6 +17,7 @@ main{
     min-height: 80vh;
     background-color: #FFFDDE;
 }
+
 
 .aelogo{
     width: 200px;
@@ -30,7 +31,7 @@ main{
     justify-content: center;
 }
 
-.button{
+.button,.buttonsub{
     color: black;
     background-color: #00E7FF;
     width: 145px;
@@ -78,7 +79,7 @@ p{
     font-size: 1.3rem;
 }
 
-.hm{
+.hm,.colcenter{
     display: flex;
     justify-content: center;
 }
@@ -158,11 +159,25 @@ p{
 }
 
 
+.formw{
+    width: 50%;
+    margin: 0 auto;
+}
 
+.submitend{
+    display: flex;
+    justify-content: end;
+}
 
+.buttonsub{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
 
-
-
+.inputmess{
+    height: 150px;
+}
 
 
 
@@ -173,7 +188,7 @@ footer .container, .center-1{
     background-color: #FFCBCB;
     display: flex;
     align-items: center;
-    height: 50px;
+    /* min-height: 10vh; */
 
 }
 
@@ -182,10 +197,14 @@ footer .container, .center-1{
 }
 
 .center-1{
-    justify-content: space-around;
+    height: 100%;
 }
 
-div a img{
+div a img,.colcenter{
     width: 35%;
     height: 75%;
+}
+
+.colcenter{
+    height: 56px;
 }
