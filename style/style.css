@@ -32,7 +32,7 @@ main{
 
 .button{
     color: black;
-    background-color: #E7FBBE;
+    background-color: #00E7FF;
     width: 145px;
     height: 50px;
     line-height: 50px;
@@ -99,16 +99,35 @@ p{
     flex: 1;
 }
 
-.h1center{
+.h1center,.coljusty{
     display: flex;
     align-items: center;
 }
 
+#sicon{
+    width: 100%;
+}
 
+#input-w{
+    width: 65%;
+    padding-left: 1.5%;
+}
 
+.line{
+    display: inline-block;
+}
 
+.coljusty{
+    justify-content: space-around;
+}
 
+.colend{
+    justify-content: center;
+}
 
+.home{
+    background-color: #E7FBBE;
+}
 
 
 
