@@ -112,6 +112,7 @@ p{
 #input-w{
     width: 65%;
     padding-left: 1.5%;
+    padding-right: 1px;
 }
 
 .line{
@@ -240,3 +241,11 @@ th, td {
     border: 1px solid black;
     padding: 8px;
 }
+
+/*2560px*/
+@media only screen and (min-width: 2560px){
+    .colcenter{
+        align-items: flex-end;
+    }
+}
+
