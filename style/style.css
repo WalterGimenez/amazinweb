@@ -22,7 +22,7 @@ main{
 .aelogo{
     width: 200px;
     height: 60px;
-    margin: 10% 40%;
+    margin: 10% 45px;
 }
 
 .column{
@@ -138,6 +138,7 @@ p{
 
 .cardmarg{
     margin-left: 10px;
+    width: 18rem;
 }
 
 .card-title{
@@ -184,8 +185,6 @@ footer .container, .center-1{
     background-color: #FFCBCB;
     display: flex;
     align-items: center;
-    /* min-height: 10vh; */
-
 }
 
 .text-center{
@@ -247,5 +246,114 @@ th, td {
     .colcenter{
         align-items: flex-end;
     }
+    .cardsection{
+        justify-content: space-evenly;
+        margin-top: 60px;
+    }
+
+    .formw{
+        margin-top: 60px;
+    }
+
+    .coljusty{
+        justify-content: space-evenly;
+    }
+
+    .imageh{
+        height: 400px;
+        width: 1000px;
+        margin: 100px 0 0 100px;
+    }
 }
 
+/*768*/
+@media only screen and (min-width: 768px){
+    .button{
+        width: 160px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .redcenter{
+        margin-top: 15px;
+    }
+
+    div.row.no-gutters{
+        background-color: #FFFDDE;
+    }
+
+    .imageh{
+        margin-top: 130px;
+    }
+
+}
+
+/*375*/
+
+@media only screen and (min-width: 320px)and (max-width: 430px)  {
+    #imgx375{
+        margin-left: 50px;
+        margin-top: 10px;
+    }
+
+    .column{
+        flex-direction: column;
+    }
+
+    .coljusty{
+        flex-direction: column;
+    }
+
+    .coljustifyh{
+        margin: auto;
+    }
+
+    #input-w{
+        height: 40px;
+        margin-left: -40px;
+        margin-top: 10px;
+    }
+
+    .cardsection{
+        flex-direction: column;
+    }
+
+    #cardsize{
+        width: 90%;
+        margin-top: 10px;
+        margin-left: 20px;
+    }
+
+    div a img{
+        width: 80%;
+        margin-top: 15px;
+        margin-left: 15px;
+    }
+
+    .spwidth{
+        width: 100px;
+    }
+    #sicon{
+        margin-left: 0;
+    }
+    #inputseaarch{
+        height: 45px;
+    }
+
+    .formw {
+        margin: 100px auto;
+    }
+
+    #my-table {
+        width: 375px;
+        border-collapse: collapse;
+    }
+    
+    #my-table th,
+    #my-table td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+    }
+}
