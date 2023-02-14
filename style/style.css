@@ -1,0 +1,359 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+}
+
+header{
+    min-height: 10vh;
+    background-color: #D9D7F1;
+}
+
+main{
+    min-height: 85vh;
+    background-color: #FFFDDE;
+}
+
+
+.aelogo{
+    width: 200px;
+    height: 60px;
+    margin: 10% 45px;
+}
+
+.column{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button,.buttonsub{
+    color: black;
+    background-color: #00E7FF;
+    width: 145px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    margin: 10px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.button:hover{
+    background-color: rgb(95, 193, 193);
+    font-style: italic;
+    border-radius: 15px;
+}
+
+
+.imageh,.bodyh{
+    min-height: 450px;
+}
+
+.colbackcol{
+    background-color: #FFFDDE;
+}
+
+.imageh{
+    margin-left: 1%;
+}
+
+.cbcenter {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    height: 100%;
+}
+
+.c-t{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+p{
+    font-size: 1.3rem;
+}
+
+.hm,.colcenter{
+    display: flex;
+    justify-content: center;
+}
+
+.pgrow{
+    color: black;
+    font-size: 3rem;
+    cursor: default;
+    text-decoration: none;
+}
+
+.besidel{
+    flex: 1;
+}
+
+.besider{
+    text-align: end;
+    flex: 1;
+}
+
+.h1center,.coljusty{
+    display: flex;
+    align-items: center;
+}
+
+#sicon{
+    width: 100%;
+}
+
+#input-w{
+    width: 65%;
+    padding-left: 1.5%;
+    padding-right: 1px;
+}
+
+.line{
+    display: inline-block;
+}
+
+.coljusty{
+    justify-content: space-around;
+}
+
+.colend{
+    justify-content: center;
+}
+
+.home{
+    background-color: #E7FBBE;
+}
+
+.pinline{
+    display: inline;
+    margin-right: 10px;
+}
+
+.cardmarg{
+    margin-left: 10px;
+    width: 18rem;
+}
+
+.card-title{
+    font-weight: bolder;
+    font-style: italic;
+    display: flex;
+    justify-content: center;
+}
+
+.imgcard{
+    width: 95%;
+    height: 85%;
+    margin-left: 7px;
+}
+
+.cardsection{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+
+.formw{
+    width: 50%;
+    margin: 0 auto;
+}
+
+.submitend{
+    display: flex;
+    justify-content: end;
+}
+
+.buttonsub{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.inputmess{
+    height: 150px;
+}
+
+footer .container, .center-1{
+    background-color: #FFCBCB;
+    display: flex;
+    align-items: center;
+}
+
+.text-center{
+    background-color: #FFCBCB;
+}
+
+.center-1{
+    height: 100%;
+}
+
+div a img,.colcenter{
+    width: 35%;
+    height: 75%;
+}
+
+.colcenter{
+    height: 56px;
+}
+
+table{
+    font-size: 1.2rem;
+    width: 90%;
+    margin: 0 auto;
+}
+
+table,thead, th,td{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+td,th{
+    padding: 10px;
+}
+
+table{
+    background-color: #A084DC;
+    gap: 10px;
+}
+
+.thtitle{
+    border: none;
+    font-size: 1.5rem;
+    
+}
+
+tbody{
+    background-color: whitesmoke;
+}
+
+th, td {
+    width: 33.33%;
+    text-align: left;
+    border: 1px solid black;
+    padding: 8px;
+}
+
+/*2560px*/
+@media only screen and (min-width: 2560px){
+    .colcenter{
+        align-items: flex-end;
+    }
+    .cardsection{
+        justify-content: space-evenly;
+        margin-top: 60px;
+    }
+
+    .formw{
+        margin-top: 60px;
+    }
+
+    .coljusty{
+        justify-content: space-evenly;
+    }
+
+    .imageh{
+        height: 400px;
+        width: 1000px;
+        margin: 100px 0 0 100px;
+    }
+}
+
+/*768*/
+@media only screen and (min-width: 768px){
+    .button{
+        width: 160px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .redcenter{
+        margin-top: 15px;
+    }
+
+    div.row.no-gutters{
+        background-color: #FFFDDE;
+    }
+
+    .imageh{
+        margin-top: 130px;
+    }
+
+}
+
+/*375*/
+
+@media only screen and (min-width: 320px)and (max-width: 430px)  {
+    #imgx375{
+        margin-left: 50px;
+        margin-top: 10px;
+    }
+
+    .column{
+        flex-direction: column;
+    }
+
+    .coljusty{
+        flex-direction: column;
+    }
+
+    .coljustifyh{
+        margin: auto;
+    }
+
+    #input-w{
+        height: 40px;
+        margin-left: -40px;
+        margin-top: 10px;
+    }
+
+    .cardsection{
+        flex-direction: column;
+    }
+
+    #cardsize{
+        width: 90%;
+        margin-top: 10px;
+        margin-left: 20px;
+    }
+
+    div a img{
+        width: 80%;
+        margin-top: 15px;
+        margin-left: 15px;
+    }
+
+    .spwidth{
+        width: 100px;
+    }
+    #sicon{
+        margin-left: 0;
+    }
+    #inputseaarch{
+        height: 45px;
+    }
+
+    .formw {
+        margin: 100px auto;
+    }
+
+    #my-table {
+        width: 375px;
+        border-collapse: collapse;
+    }
+    
+    #my-table th,
+    #my-table td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+    }
+}
