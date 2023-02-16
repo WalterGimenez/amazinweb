@@ -31,7 +31,7 @@ main{
     justify-content: center;
 }
 
-.button,.buttonsub{
+.button,.button2,.buttonsub{
     color: black;
     background-color: #00E7FF;
     width: 145px;
@@ -60,6 +60,7 @@ main{
 
 .imageh{
     margin-left: 1%;
+    margin-top: 17px;
 }
 
 .cbcenter {
@@ -268,7 +269,7 @@ th, td {
 
 /*768*/
 @media only screen and (min-width: 768px){
-    .button{
+    .button,.button2{
         width: 160px;
         display: flex;
         justify-content: center;
@@ -284,7 +285,15 @@ th, td {
     }
 
     .imageh{
-        margin-top: 130px;
+        margin-top: 13px;
+    }
+
+    .coljusty{
+        align-items: normal;
+    }
+
+    .form-check{
+        margin-left: 15px;
     }
 
 }
