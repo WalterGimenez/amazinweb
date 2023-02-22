@@ -143,6 +143,7 @@ p{
 .cardmarg{
     margin-left: 10px;
     width: 18rem;
+    margin-right: 20px;
 }
 
 .card-title{
@@ -160,7 +161,8 @@ p{
 
 .cardsection{
     display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    justify-content: center;
     margin-top: 20px;
 }
 
