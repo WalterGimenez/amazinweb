@@ -49,6 +49,9 @@ main{
     border-radius: 15px;
 }
 
+.row{
+    --bs-gutter-x: 0;
+}
 
 .imageh,.bodyh{
     min-height: 450px;
