@@ -1,5 +1,5 @@
 const cardList = document.getElementById('list-card')
-console.log(data.currentDate)
+
 for (const dataCard of data.events) {
     cardList.innerHTML += `<div class="card cardmarg cardsize">
     <img src="${dataCard.image}" class="card-img-top imgcard" alt="...">
