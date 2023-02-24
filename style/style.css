@@ -51,6 +51,7 @@ main{
 
 .row{
     --bs-gutter-x: 0;
+    align-items: center;
 }
 
 .imageh,.bodyh{
@@ -62,7 +63,6 @@ main{
 }
 
 .imageh{
-    margin-left: 1%;
     margin-top: 17px;
 }
 
@@ -144,6 +144,7 @@ p{
     margin-left: 10px;
     width: 18rem;
     margin-right: 20px;
+    margin-bottom: 20px;
 }
 
 .card-title{
@@ -207,7 +208,7 @@ div a img,.colcenter{
 }
 
 .colcenter{
-    height: 56px;
+    height: 80px;
 }
 
 table{
@@ -245,6 +246,10 @@ th, td {
     text-align: left;
     border: 1px solid black;
     padding: 8px;
+}
+
+ul{
+    list-style: none;
 }
 
 /*2560px*/
@@ -333,7 +338,7 @@ th, td {
         flex-direction: column;
     }
 
-    #cardsize{
+    .cardsize{
         width: 90%;
         margin-top: 10px;
         margin-left: 20px;
