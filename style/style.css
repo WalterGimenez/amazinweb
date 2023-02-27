@@ -155,9 +155,9 @@ p{
 }
 
 .imgcard{
-    width: 95%;
-    height: 85%;
-    margin-left: 7px;
+    width: 280px;
+    height: 182px;
+    margin-left: 3px;
 }
 
 .cardsection{
@@ -165,8 +165,13 @@ p{
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 20px;
+    height: 100%;
 }
 
+.card-footer{
+    border-top: none;
+    background-color: white;
+}
 
 .formw{
     width: 50%;
