@@ -1,21 +1,16 @@
 const cardList = document.getElementById('list-card')
 
-let dataEvents =  data.events
-
-function showData(){
-    for (const dataCard of dataEvents) {
-        cardList.innerHTML += `<div class="card cardmarg cardsize">
-        <img src="${dataCard.image}" class="card-img-top imgcard" alt="...">
+data.events.forEach(event => {
+    cardList.innerHTML +=
+    `<div class="card cardmarg cardsize">
+        <img src="${event.image}" class="card-img-top imgcard" alt="...">
         <div class="card-body">
-            <h5 class="card-title">${dataCard.name}</h5>
-            <p class="card-text">${dataCard.description}</p>
+            <h5 class="card-title">${event.name}</h5>
+            <p class="card-text">${event.description}</p>
         </div>
         <div class="card-footer">
-        <p class="pinline">Price $${dataCard.price}</p>
+        <p class="pinline">Price $${event.price}</p>
             <a href="./detail.html" class="btn btn-primary">More info..</a>
         </div>
     </div>`
-    }
-}
-
-showData()
+});
