@@ -30,10 +30,8 @@ input.addEventListener('keypress', function(event){
         if(input.value === "" ){
             input.value = "Cinema";
         }
-        const byCategory = filterPast.filter(category => category.category === input.value)
-        console.log(byCategory)
+        const byCategory = filterPast.filter(category => category.category.toLowerCase()  === input.value.toLowerCase())
         cardsPast(byCategory)
-        alert("ha ingresado " + input.value)
     }
 })
 
@@ -43,9 +41,7 @@ link.addEventListener('click', (event) =>{
     if(input.value === "" ){
         input.value = "Cinema";
     }
-    const byCategory = filterPast.filter(category => category.category === input.value)
-    console.log(byCategory)
+    const byCategory = filterPast.filter(category => category.category.toLowerCase()  === input.value.toLowerCase())
     cardsPast(byCategory)
-    alert("ha ingresado " + input.value)
 });
 
