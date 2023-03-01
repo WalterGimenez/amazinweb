@@ -292,7 +292,7 @@ ul{
     }
 
     .redcenter{
-        margin-top: 15px;
+        margin-top: 26px;
     }
 
     div.row.no-gutters{
@@ -333,6 +333,10 @@ ul{
         margin: auto;
     }
 
+    .redcenter{
+        margin-top: 15px;
+    }
+
     #input-w{
         height: 40px;
         margin-left: -40px;
@@ -349,6 +353,9 @@ ul{
         margin-left: 20px;
     }
 
+    .imgcard{
+        width: 98%;
+    }
     div a img{
         width: 80%;
         margin-top: 15px;

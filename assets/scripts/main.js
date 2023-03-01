@@ -34,7 +34,7 @@ input.addEventListener('keypress', function(event){
         const byCategory = data.events.filter(category => category.category.toLowerCase()  === input.value.toLowerCase())
         console.log(byCategory)
         allCards(byCategory)
-        alert("ha ingresado " + input.value)
+        console.log("ha ingresado " + input.value)
     }
 })
 
@@ -48,17 +48,17 @@ link.addEventListener('click', (event) =>{
 
     console.log(byCategory)
     allCards(byCategory)
-    alert("ha ingresado " + input.value)
+    console.log("ha ingresado " + input.value)
 });
 
 
 const catBook = document.getElementById('flexCheckDefault1')
 catBook.addEventListener('change', function(){
     if (this.checked) {
-        alert("presionó "+ catBook.value)
+        console.log("presionó "+ catBook.value)
         
     } else {
-        alert("desmarcó " + catBook.value)
+        console.log("desmarcó " + catBook.value)
         
     }
 });
@@ -66,10 +66,10 @@ catBook.addEventListener('change', function(){
 const cinema = document.getElementById('flexCheckDefault2')
 cinema.addEventListener('change', function(){
     if (this.checked) {
-        alert("presionó "+ cinema.value)
+        console.log("presionó "+ cinema.value)
         
     } else {
-        alert("desmarcó " + cinema.value)
+        console.log("desmarcó " + cinema.value)
         
     }
 });
@@ -77,10 +77,10 @@ cinema.addEventListener('change', function(){
 const costume = document.getElementById('flexCheckDefault3')
 costume.addEventListener('change', function(){
     if (this.checked) {
-        alert("presionó "+ costume.value)
+        console.log("presionó "+ costume.value)
         
     } else {
-        alert("desmarcó " + costume.value)
+        console.log("desmarcó " + costume.value)
         
     }
 });
@@ -88,10 +88,10 @@ costume.addEventListener('change', function(){
 const food = document.getElementById('flexCheckDefault4')
 food.addEventListener('change', function(){
     if (this.checked) {
-        alert("presionó "+ food.value)
+        console.log("presionó "+ food.value)
         
     } else {
-        alert("desmarcó " + food.value)
+        console.log("desmarcó " + food.value)
         
     }
 });
@@ -99,10 +99,10 @@ food.addEventListener('change', function(){
 const museum = document.getElementById('flexCheckDefault5')
 museum.addEventListener('change', function(){
     if (this.checked) {
-        alert("presionó "+ museum.value)
+        console.log("presionó "+ museum.value)
         
     } else {
-        alert("desmarcó " + museum.value)
+        console.log("desmarcó " + museum.value)
         
     }
 });
@@ -110,10 +110,10 @@ museum.addEventListener('change', function(){
 const concert = document.getElementById('flexCheckDefault6')
 concert.addEventListener('change', function(){
     if (this.checked) {
-        alert("presionó "+ concert.value)
+        console.log("presionó "+ concert.value)
         
     } else {
-        alert("desmarcó " + concert.value)
+        console.log("desmarcó " + concert.value)
         
     }
 });
@@ -121,14 +121,16 @@ concert.addEventListener('change', function(){
 const race = document.getElementById('flexCheckDefault7')
 race.addEventListener('change', function(){
     if (this.checked) {
-        alert("presionó "+ race.value)
+        console.log("presionó "+ race.value)
         
     } else {
-        alert("desmarcó " + race.value)
+        console.log("desmarcó " + race.value)
         
     }
 });
 
 
 
-
+//probando....????
+// const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+// console.log(checkboxes)//me muestra el total de los checkboxes 
