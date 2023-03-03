@@ -299,12 +299,24 @@ ul{
         background-color: #FFFDDE;
     }
 
+    .form-check{
+        margin-bottom: 15px;
+    }
+
     .imageh{
         margin-top: 13px;
     }
+    .row{
+        display: flex;
+        align-items: center;
+    }
 
+    .category{
+        flex-direction: column;
+    }
     .coljusty{
-        align-items: normal;
+        align-items: start;
+        margin-top: 15px;
     }
 
     .form-check{
@@ -327,6 +339,9 @@ ul{
 
     .coljusty{
         flex-direction: column;
+        align-items: start;
+        margin-top: 15px;
+        margin-left: 80px;
     }
 
     .coljustifyh{
@@ -337,12 +352,22 @@ ul{
         margin-top: 15px;
     }
 
+    .row{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     #input-w{
         height: 40px;
-        margin-left: -40px;
+        margin-left: -30px;
         margin-top: 10px;
     }
 
+    .colend{
+        margin-left: 20px;
+    }
+        
     .cardsection{
         flex-direction: column;
     }
