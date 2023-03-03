@@ -1,26 +1,29 @@
 const cardList = document.getElementById('list-card')
 
-function allCards(data){
-    cardList.innerHTML = ""
+
+function allCards(data) {
+    const fragment = document.createDocumentFragment(); // Crear un fragmento
     data.forEach(event => {
-        cardList.innerHTML +=
-        `<div class="card cardmarg cardsize">
-            <img src="${event.image}" class="card-img-top imgcard" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">${event.name}</h5>
+        const card = document.createElement('div'); // Crear el elemento
+        card.className = 'card cardmarg cardsize';
+        card.innerHTML = `
+        <img src="${event.image}" class="card-img-top imgcard" alt="...">
+        <div class="card-body">
+        <h5 class="card-title">${event.name}</h5>
                 <p class="card-text">${event.description}</p>
-            </div>
-            <div class="card-footer">
+        </div>
+        <div class="card-footer">
             <p class="pinline">Price $${event.price}</p>
-                <a href="./detail.html" class="btn btn-primary">More info..</a>
-            </div>
-        </div>`
+            <a href="./detail.html" class="btn btn-primary">More info..</a>
+        </div>
+    `;
+        fragment.appendChild(card); // Agregar el elemento al fragmento
     });
+    cardList.appendChild(fragment); // Agregar el fragmento al DOM
 }
 
-let allData = data.events
-allCards(allData)
-
+let allData = data.events;
+allCards(allData);
 
 const input = document.getElementById('input-w')
 const link = document.querySelector('#inputseaarch');  
@@ -52,85 +55,66 @@ link.addEventListener('click', (event) =>{
 });
 
 
-const catBook = document.getElementById('flexCheckDefault1')
-catBook.addEventListener('change', function(){
-    if (this.checked) {
-        console.log("presionó "+ catBook.value)
-        
-    } else {
-        console.log("desmarcó " + catBook.value)
-        
-    }
-});
-
-const cinema = document.getElementById('flexCheckDefault2')
-cinema.addEventListener('change', function(){
-    if (this.checked) {
-        console.log("presionó "+ cinema.value)
-        
-    } else {
-        console.log("desmarcó " + cinema.value)
-        
-    }
-});
-
-const costume = document.getElementById('flexCheckDefault3')
-costume.addEventListener('change', function(){
-    if (this.checked) {
-        console.log("presionó "+ costume.value)
-        
-    } else {
-        console.log("desmarcó " + costume.value)
-        
-    }
-});
-
-const food = document.getElementById('flexCheckDefault4')
-food.addEventListener('change', function(){
-    if (this.checked) {
-        console.log("presionó "+ food.value)
-        
-    } else {
-        console.log("desmarcó " + food.value)
-        
-    }
-});
-
-const museum = document.getElementById('flexCheckDefault5')
-museum.addEventListener('change', function(){
-    if (this.checked) {
-        console.log("presionó "+ museum.value)
-        
-    } else {
-        console.log("desmarcó " + museum.value)
-        
-    }
-});
-
-const concert = document.getElementById('flexCheckDefault6')
-concert.addEventListener('change', function(){
-    if (this.checked) {
-        console.log("presionó "+ concert.value)
-        
-    } else {
-        console.log("desmarcó " + concert.value)
-        
-    }
-});
-
-const race = document.getElementById('flexCheckDefault7')
-race.addEventListener('change', function(){
-    if (this.checked) {
-        console.log("presionó "+ race.value)
-        
-    } else {
-        console.log("desmarcó " + race.value)
-        
-    }
-});
-
-
 
 //probando....????
 // const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 // console.log(checkboxes)//me muestra el total de los checkboxes 
+const check = document.querySelectorAll(".form-check-input");
+
+console.log(check);
+
+
+const selected = []
+
+
+
+// check.forEach(checkbox =>{
+//     checkbox.addEventListener('change',function(){
+//         if (this.checked) {
+//             console.log("presionó "+ checkbox.value)
+//             const byCategory = data.events.filter(category => category.category.toLowerCase() === checkbox.value.toLowerCase())
+//             console.log(byCategory)
+//             allCards(byCategory)
+//         } else {
+//             console.log("desmarcó " + checkbox.value)
+            
+//         }
+//     })
+// })
+
+// check.forEach(checkbox =>{
+//     checkbox.addEventListener('change', function(){
+//         if(this.checked && checkbox.value === "Book Exchange"){
+//             console.log("presionó "+ checkbox.value)
+//             const byCategory = data.events.filter(category => category.category.toLowerCase() === checkbox.value.toLowerCase())
+//             console.log(byCategory)
+//             allCards(byCategory)
+//         }else{
+//             allCards(allData)
+//         }
+//     })
+// })
+
+//probar con los demás
+// const byCategory = data.events.filter(category => category.category === "Book Exchange" || category.category === "Cinema")
+// allCards(byCategory)
+
+
+// check.forEach(checkbox =>{
+//     checkbox.addEventListener('change', function(){
+//         if(this.checked && checkbox.value === "Book Exchange" && checkbox.value === "Cinema"){
+//             console.log("press " + checkbox.value);
+            
+//                 const byCategory = data.events.filter(category => category.category === "Book Exchange" || category.category === "Cinema")
+//                 allCards(byCategory)
+//             }else{
+//                 allCards(allData)
+//             }
+            // console.log("presionó "+ checkbox.value)
+            // const byCategory = data.events.filter(category => category.category.toLowerCase() === checkbox.value.toLowerCase())
+            // console.log(byCategory)
+            // allCards(byCategory)
+
+//     })
+// })
+
