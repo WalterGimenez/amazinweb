@@ -27,11 +27,21 @@ const link = document.querySelector('#inputseaarch');
 input.addEventListener('keypress', function(event){ 
     if(event.key === "Enter"){   
         const input = document.getElementById('input-w')
+        const arrayEvents = data.events
         if(input.value === "" ){
             input.value = "Cinema";
+            const byCategory = filterUp.filter(category => category.category.toLowerCase()  === input.value.toLowerCase())
+            cardsUp(byCategory)
+        }else{
+            const specialCategory = filterUp.filter(event =>
+                    event.name.toLowerCase().includes(input.value.toLowerCase()) || event.description.toLowerCase().includes(input.value.toLowerCase())
+                )
+            if(specialCategory.length === 0){
+                specialCategory.description = "No se ha encontrado ninguna card con esa especificación, pruebe de nuevo"
+            }
+            cardsUp(specialCategory)
         }
-        const byCategory = filterUp.filter(category => category.category.toLowerCase()  === input.value.toLowerCase())
-        cardsUp(byCategory)
+        input.value="";
     }
 })
 
@@ -40,7 +50,19 @@ link.addEventListener('click', (event) =>{
     const input = document.getElementById('input-w')
     if(input.value === "" ){
         input.value = "Cinema";
+        const byCategory = filterUp.filter(category => category.category.toLowerCase() === input.value.toLowerCase())
+        console.log(byCategory)
+        cardsUp(byCategory)
+    }else{
+        const specialCategory = filterUp.filter(event =>
+            event.name.toLowerCase().includes(input.value.toLowerCase()) || event.description.toLowerCase().includes(input.value.toLowerCase())
+        )
+        
+        console.log(specialCategory);
+        if(specialCategory.length === 0){
+            specialCategory.description = "No se ha encontrado ninguna card con esa especificación, pruebe de nuevo"
+        }
+        cardsUp(specialCategory)
     }
-    const byCategory = filterUp.filter(category => category.category.toLowerCase()  === input.value.toLowerCase())
-    cardsUp(byCategory)
+    input.value="";
 });
