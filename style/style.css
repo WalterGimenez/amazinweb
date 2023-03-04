@@ -292,7 +292,7 @@ ul{
     }
 
     .redcenter{
-        margin-top: 26px;
+        margin-top: 13px;
     }
 
     div.row.no-gutters{
@@ -311,9 +311,7 @@ ul{
         align-items: center;
     }
 
-    .category{
-        flex-direction: column;
-    }
+
     .coljusty{
         align-items: start;
         margin-top: 15px;
