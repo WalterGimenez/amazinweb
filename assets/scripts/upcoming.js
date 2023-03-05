@@ -66,3 +66,32 @@ link.addEventListener('click', (event) =>{
     }
     input.value="";
 });
+
+//by boxe's category checkboxs
+const checkboxes = document.querySelectorAll(".form-check-input");
+
+const arrayByCategories = data.events
+
+//Add a listener's event in each check
+checkboxes.forEach(function(checkbox){
+    checkbox.addEventListener('change', function(){
+        const selectedChecks = document.querySelectorAll(".form-check-input:checked")
+        const selectedValuesChecks = Array.from(selectedChecks).map(function(checkbox) {
+            return checkbox.value;
+        });
+        const filteredCheckboxes = Array.from(checkboxes).filter(function(value) {
+            return selectedValuesChecks.includes(value.value)
+        })
+        const eventsFiltered = arrayByCategories.filter(function(event) {
+            return filteredCheckboxes.map(function(checkbox) {
+                return checkbox.value;
+            }).includes(event.category)
+        })
+        console.log(eventsFiltered);
+        if(eventsFiltered.length === 0){
+            cardsUp(filterUp)
+        }else{
+            cardsUp(eventsFiltered)
+        }
+    })
+})
