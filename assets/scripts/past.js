@@ -29,9 +29,18 @@ input.addEventListener('keypress', function(event){
         const input = document.getElementById('input-w')
         if(input.value === "" ){
             input.value = "Cinema";
+            const byCategory = filterPast.filter(category => category.category.toLowerCase()  === input.value.toLowerCase())
+            cardsPast(byCategory)
+        }else{
+            const specialCategory = filterPast.filter(event =>
+                    event.name.toLowerCase().includes(input.value.toLowerCase()) || event.description.toLowerCase().includes(input.value.toLowerCase())
+                )
+            if(specialCategory.length === 0){
+                specialCategory.description = "No se ha encontrado ninguna card con esa especificación, pruebe de nuevo"
+            }
+            cardsPast(specialCategory)
         }
-        const byCategory = filterPast.filter(category => category.category.toLowerCase()  === input.value.toLowerCase())
-        cardsPast(byCategory)
+        input.value="";
     }
 })
 
@@ -40,8 +49,20 @@ link.addEventListener('click', (event) =>{
     const input = document.getElementById('input-w')
     if(input.value === "" ){
         input.value = "Cinema";
+        const byCategory = filterPast.filter(category => category.category.toLowerCase() === input.value.toLowerCase())
+        console.log(byCategory)
+        cardsPast(byCategory)
+    }else{
+        const specialCategory = filterPast.filter(event =>
+            event.name.toLowerCase().includes(input.value.toLowerCase()) || event.description.toLowerCase().includes(input.value.toLowerCase())
+        )
+        
+        console.log(specialCategory);
+        if(specialCategory.length === 0){
+            specialCategory.description = "No se ha encontrado ninguna card con esa especificación, pruebe de nuevo"
+        }
+        cardsPast(specialCategory)
     }
-    const byCategory = filterPast.filter(category => category.category.toLowerCase()  === input.value.toLowerCase())
-    cardsPast(byCategory)
+    input.value="";
 });
 
