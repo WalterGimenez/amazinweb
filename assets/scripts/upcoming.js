@@ -70,7 +70,7 @@ link.addEventListener('click', (event) =>{
 //by boxe's category checkboxs
 const checkboxes = document.querySelectorAll(".form-check-input");
 
-const arrayByCategories = data.events
+const arrayByCategories = filterUp
 
 //Add a listener's event in each check
 checkboxes.forEach(function(checkbox){
