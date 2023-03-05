@@ -40,14 +40,14 @@ input.addEventListener('keypress', function(event){
         if(input.value === "" ){
             input.value = "Cinema";
             const byCategory = arrayEvents.filter(category => category.category.toLowerCase()  === input.value.toLowerCase())
-            console.log(byCategory)
+            // console.log(byCategory)
             allCards(byCategory)
         }else{
             const specialCategory = arrayEvents.filter(event =>
                     event.name.toLowerCase().includes(input.value.toLowerCase()) || event.description.toLowerCase().includes(input.value.toLowerCase())
                 )
                 
-            console.log(specialCategory);
+            // console.log(specialCategory);
             if(specialCategory.length === 0){
                 const notFound = "Cards no found, please try with another word";
                 cardList.innerHTML = `<div class="alert alert-danger" role="alert">${notFound}</div>
@@ -57,7 +57,6 @@ input.addEventListener('keypress', function(event){
             }
             
         }
-        // input.value="";
     }
 })
 
@@ -68,23 +67,19 @@ link.addEventListener('click', (event) =>{
     if(input.value === "" ){
         input.value = "Cinema";
         const byCategory = data.events.filter(category => category.category.toLowerCase() === input.value.toLowerCase())
-        console.log(byCategory)
         allCards(byCategory)
     }else{
         const specialCategory = arrayEvents.filter(event =>
             event.name.toLowerCase().includes(input.value.toLowerCase()) || event.description.toLowerCase().includes(input.value.toLowerCase())
         )
-        
-        console.log(specialCategory);
         if(specialCategory.length === 0){
             const notFound = "Cards no found, please try with another word";
             cardList.innerHTML = `<div class="alert alert-danger" role="alert">${notFound}</div>
-            <a href="./index.html" class="btn btn-primary">Return Home</a>`
+            <a href="./index.html" class="btn btn-primary" id="no-foundC">Return Home</a>`
         }else{
             allCards(specialCategory)
         }
     }
-    // input.value="";
 });
 
 //by boxe's category checkboxs
@@ -109,7 +104,9 @@ checkboxes.forEach(function(checkbox){
         })
         console.log(eventsFiltered);
         if(eventsFiltered.length === 0){
-            allCards(allData)
+            const notFound = "Cards no found, please try with another word";
+            cardList.innerHTML = `<div class="alert alert-danger" role="alert">${notFound}</div>
+            <a href="./index.html" class="btn btn-primary" id="no-foundC">Return Home</a>`
         }else{
             allCards(eventsFiltered)
         }

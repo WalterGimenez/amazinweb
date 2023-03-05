@@ -37,9 +37,13 @@ input.addEventListener('keypress', function(event){
                     event.name.toLowerCase().includes(input.value.toLowerCase()) || event.description.toLowerCase().includes(input.value.toLowerCase())
                 )
             if(specialCategory.length === 0){
-                specialCategory.description = "No se ha encontrado ninguna card con esa especificación, pruebe de nuevo"
+                const notFound = "Cards no found, please try with another word";
+                cardListUp.innerHTML = `<div class="alert alert-danger" role="alert">${notFound}</div>
+                <a href="./upcoming.html" class="btn btn-primary" id="no-foundC">Return</a>`
+            }else{
+                cardsUp(specialCategory)
             }
-            cardsUp(specialCategory)
+            
         }
         input.value="";
     }
@@ -60,9 +64,12 @@ link.addEventListener('click', (event) =>{
         
         console.log(specialCategory);
         if(specialCategory.length === 0){
-            specialCategory.description = "No se ha encontrado ninguna card con esa especificación, pruebe de nuevo"
+            const notFound = "Cards no found, please try with another word";
+            cardListUp.innerHTML = `<div class="alert alert-danger" role="alert">${notFound}</div>
+            <a href="./upcoming.html" class="btn btn-primary" id="no-foundC">Return</a>`
+        }else{
+            cardsUp(specialCategory)
         }
-        cardsUp(specialCategory)
     }
     input.value="";
 });
@@ -89,7 +96,9 @@ checkboxes.forEach(function(checkbox){
         })
         console.log(eventsFiltered);
         if(eventsFiltered.length === 0){
-            cardsUp(filterUp)
+            const notFound = "Cards no found, please try with another word";
+            cardListUp.innerHTML = `<div class="alert alert-danger" role="alert">${notFound}</div>
+            <a href="./upcoming.html" class="btn btn-primary" id="no-foundC">Return</a>`
         }else{
             cardsUp(eventsFiltered)
         }
