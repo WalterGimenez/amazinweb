@@ -78,76 +78,33 @@ link.addEventListener('click', (event) =>{
     input.value="";
 });
 
+//by boxe's category checkboxs
+const checkboxes = document.querySelectorAll(".form-check-input");
 
+const arrayByCategories = data.events
 
-//probando....????
-// const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-// console.log(checkboxes)//me muestra el total de los checkboxes 
-const check = document.querySelectorAll(".form-check-input");
+//Add a listener's event in each check
+checkboxes.forEach(function(checkbox){
+    checkbox.addEventListener('change', function(){
+        const selectedChecks = document.querySelectorAll(".form-check-input:checked")
+        const selectedValuesChecks = Array.from(selectedChecks).map(function(checkbox) {
+            return checkbox.value;
+        });
+        const filteredCheckboxes = Array.from(checkboxes).filter(function(value) {
+            return selectedValuesChecks.includes(value.value)
+        })
+        const eventsFiltered = arrayByCategories.filter(function(event) {
+            return filteredCheckboxes.map(function(checkbox) {
+                return checkbox.value;
+            }).includes(event.category)
+        })
+        console.log(eventsFiltered);
+        if(eventsFiltered.length === 0){
+            allCards(allData)
+        }else{
+            allCards(eventsFiltered)
+        }
+    })
+})
 
-console.log(check);
-
-
-const selected = []
-//probando filtros de events.name que contenga "bat" y que contenga algo en events.description "bring" 
-// const especialCategory = data.events.filter(event =>
-//     // event.name.includes("bat") || event.description.includes("10k")
-//     event.name.toLowerCase().includes("bat") || event.description.toLowerCase().includes("bring")
-// );
-// console.log(especialCategory);
-
-//lo de arriba funcionó, ahora tengo que aplicarlo al input
-
-
-
-
-// check.forEach(checkbox =>{
-//     checkbox.addEventListener('change',function(){
-//         if (this.checked) {
-//             console.log("presionó "+ checkbox.value)
-//             const byCategory = data.events.filter(category => category.category.toLowerCase() === checkbox.value.toLowerCase())
-//             console.log(byCategory)
-//             allCards(byCategory)
-//         } else {
-//             console.log("desmarcó " + checkbox.value)
-            
-//         }
-//     })
-// })
-
-// check.forEach(checkbox =>{
-//     checkbox.addEventListener('change', function(){
-//         if(this.checked && checkbox.value === "Book Exchange"){
-//             console.log("presionó "+ checkbox.value)
-//             const byCategory = data.events.filter(category => category.category.toLowerCase() === checkbox.value.toLowerCase())
-//             console.log(byCategory)
-//             allCards(byCategory)
-//         }else{
-//             allCards(allData)
-//         }
-//     })
-// })
-
-//probar con los demás
-// const byCategory = data.events.filter(category => category.category === "Book Exchange" || category.category === "Cinema")
-// allCards(byCategory)
-
-
-// check.forEach(checkbox =>{
-//     checkbox.addEventListener('change', function(){
-//         if(this.checked && checkbox.value === "Book Exchange" && checkbox.value === "Cinema"){
-//             console.log("press " + checkbox.value);
-            
-//                 const byCategory = data.events.filter(category => category.category === "Book Exchange" || category.category === "Cinema")
-//                 allCards(byCategory)
-//             }else{
-//                 allCards(allData)
-//             }
-            // console.log("presionó "+ checkbox.value)
-            // const byCategory = data.events.filter(category => category.category.toLowerCase() === checkbox.value.toLowerCase())
-            // console.log(byCategory)
-            // allCards(byCategory)
-
-//     })
-// })
 
