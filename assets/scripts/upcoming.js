@@ -45,7 +45,6 @@ input.addEventListener('keypress', function(event){
             }
             
         }
-        input.value="";
     }
 })
 
@@ -71,7 +70,6 @@ link.addEventListener('click', (event) =>{
             cardsUp(specialCategory)
         }
     }
-    input.value="";
 });
 
 //by boxe's category checkboxs
