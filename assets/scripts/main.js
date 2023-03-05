@@ -25,6 +25,8 @@ function viewDetailCard(id){
 
 /*fished show cards */
 
+// only must send information in details's page web
+
 let allData = data.events;
 allCards(allData);
 
@@ -47,11 +49,15 @@ input.addEventListener('keypress', function(event){
                 
             console.log(specialCategory);
             if(specialCategory.length === 0){
-                specialCategory.description = "No se ha encontrado ninguna card con esa especificación, pruebe de nuevo"
+                const notFound = "Cards no found, please try with another word";
+                cardList.innerHTML = `<div class="alert alert-danger" role="alert">${notFound}</div>
+                <a href="./index.html" class="btn btn-primary" id="no-foundC">Return Home</a>`
+            }else{
+                allCards(specialCategory)
             }
-            allCards(specialCategory)
+            
         }
-        input.value="";
+        // input.value="";
     }
 })
 
@@ -71,11 +77,14 @@ link.addEventListener('click', (event) =>{
         
         console.log(specialCategory);
         if(specialCategory.length === 0){
-            specialCategory.description = "No se ha encontrado ninguna card con esa especificación, pruebe de nuevo"
+            const notFound = "Cards no found, please try with another word";
+            cardList.innerHTML = `<div class="alert alert-danger" role="alert">${notFound}</div>
+            <a href="./index.html" class="btn btn-primary">Return Home</a>`
+        }else{
+            allCards(specialCategory)
         }
-        allCards(specialCategory)
     }
-    input.value="";
+    // input.value="";
 });
 
 //by boxe's category checkboxs

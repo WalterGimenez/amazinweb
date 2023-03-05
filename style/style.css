@@ -257,6 +257,13 @@ ul{
     list-style: none;
 }
 
+#no-foundC{
+    height: 38px;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+
 /*2560px*/
 @media only screen and (min-width: 2560px){
     .colcenter{
