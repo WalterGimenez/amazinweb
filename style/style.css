@@ -269,21 +269,25 @@ ul{
 
 .img-detail{
     width: 492px;
-    height: 280px;
 }
 
 #detail-card{
     margin-top: 0;
 }
 
+.red-size{
+    width: 20%;
+}
+
 /*2560px*/
 @media only screen and (min-width: 2560px){
-    .colcenter{
-        align-items: flex-end;
-    }
     .cardsection{
         justify-content: space-evenly;
         margin-top: 60px;
+    }
+
+    div a img{
+        width: 15%;
     }
 
     .formw{
@@ -299,6 +303,7 @@ ul{
         width: 1000px;
         margin: 100px 0 0 100px;
     }
+
 }
 
 /*768*/
@@ -332,6 +337,7 @@ ul{
 
 
     .coljusty{
+        flex-wrap: wrap;
         align-items: start;
         margin-top: 15px;
     }
@@ -340,6 +346,13 @@ ul{
         margin-left: 15px;
     }
 
+    .col-footer{
+        margin-top: 10px;
+    }
+
+    .red-size{
+        width: 30%;
+    }
 }
 
 /*375*/
@@ -428,5 +441,9 @@ ul{
         border: 1px solid black;
         padding: 8px;
         text-align: left;
+    }
+
+    .colcenter{
+        width: 100%;
     }
 }
