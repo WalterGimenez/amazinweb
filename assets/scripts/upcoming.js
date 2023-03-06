@@ -11,8 +11,8 @@ function cardsUp(data){
                 <p class="card-text">${event.description}</p>
             </div>
             <div class="card-footer">
-            <p class="pinline">Price $${event.price}</p>
-                <a href="./detail.html" class="btn btn-primary">More info..</a>
+                <p class="pinline">Price $${event.price}</p>
+                <input type="button" onclick="viewDetailCard(${event._id})" class="btn btn-primary" value="More info..">
             </div>
         </div>`
     });
@@ -20,6 +20,11 @@ function cardsUp(data){
 const filterUp = data.events.filter(date => date.date > data.currentDate)
 cardsUp(filterUp)
 
+
+//capturing id
+function viewDetailCard(id){
+    window.location.href = `./detail.html?id=${id}`//send id for detail.html
+}
 
 const input = document.getElementById('input-w')
 const link = document.querySelector('#inputseaarch');  
