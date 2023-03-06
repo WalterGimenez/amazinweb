@@ -11,7 +11,7 @@ function allCards(data){
             <p class="card-text">${card.description}</p>
         </div>
         <div class="card-footer">
-        <p class="pinline">Price $${card.price}</p>
+            <p class="pinline">Price $${card.price}</p>
             <input type="button" onclick="viewDetailCard(${card._id})" class="btn btn-primary" value="More info..">
         </div>
     </div>`
@@ -19,6 +19,8 @@ function allCards(data){
     }
     cardList.innerHTML = html_page;
 }
+
+
 
 //capturing id
 function viewDetailCard(id){
