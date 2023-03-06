@@ -12,20 +12,21 @@ function allCards(data){
         </div>
         <div class="card-footer">
         <p class="pinline">Price $${card.price}</p>
-            <a href="./detail.html" class="btn btn-primary">More info..</a>
+            <input type="button" onclick="viewDetailCard(${card._id})" class="btn btn-primary" value="More info..">
         </div>
     </div>`
         
     }
     cardList.innerHTML = html_page;
 }
+
+//capturing id
 function viewDetailCard(id){
-    window.location.href = `./detail.html?id=${id}`//call id for detail.html
+    window.location.href = `./detail.html?id=${id}`//send id for detail.html
 }
 
 /*fished show cards */
 
-// only must send information in details's page web
 
 let allData = data.events;
 allCards(allData);

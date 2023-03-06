@@ -263,6 +263,18 @@ ul{
     margin-left: 10px;
 }
 
+.cardsize-detail{
+    width: 500px;
+}
+
+.img-detail{
+    width: 492px;
+    height: 280px;
+}
+
+#detail-card{
+    margin-top: 0;
+}
 
 /*2560px*/
 @media only screen and (min-width: 2560px){
