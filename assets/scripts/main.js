@@ -85,7 +85,7 @@ link.addEventListener('click', (event) =>{
     }
 });
 
-//by boxe's category checkboxs
+//by boxes's category checkboxs
 const checkboxes = document.querySelectorAll(".form-check-input");
 
 const arrayByCategories = data.events

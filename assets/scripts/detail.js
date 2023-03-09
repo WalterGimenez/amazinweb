@@ -11,7 +11,7 @@ const card = data.events.filter(search => search._id == id)
 const cardListDetail = document.getElementById('detail-card')
 
 function detailCard(detail){
-    console.log(detail[0]._id);
+    // console.log(detail[0]._id);
     cardListDetail.innerHTML = ""
     // data.forEach(event => {
         cardListDetail.innerHTML =
