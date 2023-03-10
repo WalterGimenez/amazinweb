@@ -25,6 +25,12 @@ function allCards(data){
     cardList.innerHTML = html_page;
 }
 
+//capturing id
+function viewDetailCard(id){
+    window.location.href = `./detail.html?id=${id}`//send id for detail.html
+}
+
+
 function filterData() {
     let searchValue = input.value.toLowerCase()
     filteredData = allData.filter(event =>
@@ -48,7 +54,7 @@ input.addEventListener('keypress', function(event){
 
 
 link_pressed.addEventListener('click', function(event){ //i must to call <a> in DOM, carefully!!!!
-    event.preventDefault(); // prevenir comportamiento por defecto del enlace
+    event.preventDefault();
     filterData();
     if(filteredData.length === 0){
         const notFound = "Cards no found, please try with another word";
@@ -58,6 +64,7 @@ link_pressed.addEventListener('click', function(event){ //i must to call <a> in 
         allCards(filteredData);
     }
 });
+
 checkboxes.forEach(function(checkbox){
     checkbox.addEventListener('change', function(){
         filterData();
