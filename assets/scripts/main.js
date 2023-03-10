@@ -1,4 +1,3 @@
-
 const cardList = document.getElementById('list-card');
 const checkboxes = document.querySelectorAll(".form-check-input");
 const input = document.getElementById('input-w');
