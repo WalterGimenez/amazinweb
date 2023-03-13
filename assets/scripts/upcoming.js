@@ -1,11 +1,18 @@
-const cardList = document.getElementById('list-card');
+//petition's fetch
+let urlApi = "https://mindhub-xj03.onrender.com/api/amazing"
+
+async function showUpcoming(){
+    fetch(urlApi)
+    .then(response =>response.json())
+    .then(datas =>{
+        const cardList = document.getElementById('list-card');
 const checkboxes = document.querySelectorAll(".form-check-input");
 const input = document.getElementById('input-w');
 const link_pressed = document.getElementById('pressed')
 const listCategories = document.getElementById('catego')
 
-let allData = data.events;
-let cardListUp = allData.filter(date => date.date > data.currentDate)
+let allData = datas.events;
+let cardListUp = allData.filter(date => date.date > datas.currentDate)
 
 function cardsUp(data){
     let html_page = "";
@@ -26,7 +33,7 @@ function cardsUp(data){
 }
 
 //seeing how many categorys there are.
-let onlyCategories = data.events.reduce(function(categories, event) {
+let onlyCategories = allData.reduce(function(categories, event) {
     if (!categories.includes(event.category)) {
         categories.push(event.category);
     }
@@ -60,10 +67,7 @@ listCategories
 
 
 
-//capturing id
-function viewDetailCard(id){
-    window.location.href = `./detail.html?id=${id}`//send id for detail.html
-}
+
 
 function filterData() {
     let searchValue = input.value.toLowerCase();
@@ -155,3 +159,13 @@ checkboxes.forEach(function(checkbox){
 
 // Initial display of all cards
 cardsUp(cardListUp);
+    })
+    .catch(error =>{
+        console.log(error);
+    })
+}
+//capturing id
+function viewDetailCard(id){
+    window.location.href = `./detail.html?id=${id}`//send id for detail.html
+}
+showUpcoming()
