@@ -18,9 +18,8 @@ async function showOne(){
         const cardListDetail = document.getElementById('detail-card')
         
         function detailCard(detail){
-            // console.log(detail[0]._id);
+            
             cardListDetail.innerHTML = ""
-            // data.forEach(event => {
                 cardListDetail.innerHTML =
                 `<div class="card cardmarg cardsize cardsize-detail">
                     <img src="${detail[0].image}" class="card-img-top imgcard img-detail" alt="...">
@@ -36,10 +35,14 @@ async function showOne(){
                         <a href="./index.html" class="btn btn-primary">Return Home</a>
                     </div>
                 </div>`
-            // });
+            
         }
         
         detailCard(card)
+        
+    })
+    .catch(error =>{
+        console.log(error);
     })
 }
 
