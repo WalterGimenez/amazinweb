@@ -96,8 +96,9 @@ function filterByCategory() {
         return event.name.toLowerCase().includes(searchValue) || event.description.toLowerCase().includes(searchValue);
     }).filter(event => {
         if (selectedCategories.length == 0) {
-            return true; // if no categories selected, show all cards
+            return true; // if no categories are selected, show me all cards
         } else {
+            
             return selectedCategories.includes(event.category);
         }
     });
