@@ -2,6 +2,7 @@ const cardList = document.getElementById('list-card');
 const checkboxes = document.querySelectorAll(".form-check-input");
 const input = document.getElementById('input-w');
 const link_pressed = document.getElementById('pressed')
+const listCategories = document.getElementById('catego')
 
 let allData = data.events;
 let cardListPast = allData.filter(date => date.date < data.currentDate)
@@ -24,6 +25,40 @@ function cardsPast(data){
     cardList.innerHTML = html_page;
 }
 
+//seeing how many categorys there are.
+let onlyCategories = data.events.reduce(function(categories, event) {
+    if (!categories.includes(event.category)) {
+        categories.push(event.category);
+    }
+    return categories;
+    }, []);
+
+//showing categories
+byCategories(onlyCategories)
+
+function byCategories(dataCategory){
+    let oneCategory = ""
+    for (const categ of dataCategory) {
+        oneCategory+=`<div class="form-check line book">
+        <input class="form-check-input" type="checkbox" value="${categ}" id="${categ}">
+        <label class="form-check-label" for="${categ}">
+            ${categ}
+        </label>
+    </div>` 
+    }
+    listCategories.innerHTML = oneCategory
+}
+
+//seeing categories
+listCategories
+.addEventListener('change', function(event) {
+    if (event.target.classList.contains('form-check-input')) {
+        const checkedValues = Array.from(listCategories
+        .querySelectorAll('.form-check-input:checked')).map(checkbox => checkbox.value);
+    }
+});
+
+
 
 //capturing id
 function viewDetailCard(id){
@@ -31,63 +66,92 @@ function viewDetailCard(id){
 }
 
 function filterData() {
-    let searchValue = input.value.toLowerCase()
-    cardListPast = cardListPast.filter(event =>
-        event.name.toLowerCase().includes(searchValue) || event.description.toLowerCase().includes(searchValue)
-    );
+    let searchValue = input.value.toLowerCase();
+    let selectedCategories = Array.from(listCategories.querySelectorAll('.form-check-input:checked')).map(checkbox => checkbox.value);
+
+    filteredData = cardListPast.filter(event => {
+        return event.name.toLowerCase().includes(searchValue) || event.description.toLowerCase().includes(searchValue);
+    }).filter(event => {
+        if (selectedCategories.length == 0) {
+            return true; // if no categories selected, show all cards
+        } else {
+            return selectedCategories.includes(event.category);
+        }
+    });
 }
 
-input.addEventListener('keypress', function(event){ 
-    if(event.key === "Enter"){   
+
+function filterByCategory() {
+    let searchValue = input.value.toLowerCase();
+    let selectedCategories = Array.from(listCategories.querySelectorAll('.form-check-input:checked')).map(checkbox => checkbox.value);
+    
+    filteredData = cardListPast.filter(event => {
+        return event.name.toLowerCase().includes(searchValue) || event.description.toLowerCase().includes(searchValue);
+    }).filter(event => {
+        if (selectedCategories.length == 0) {
+            return true; // if no categories are selected, show me all cards
+        } else {
+            
+            return selectedCategories.includes(event.category);
+        }
+    });
+    
+    if (filteredData.length == 0) {
+        const notFound = "Cards no found, please try with another word";
+        cardList.innerHTML = `<div class="alert alert-danger" role="alert">${notFound}</div>
+        <a href="./past.html" class="btn btn-primary" id="no-foundC">Return</a>`
+    } else {
+        cardsPast(filteredData);
+    }
+}
+
+
+listCategories.addEventListener('change', function(event) {
+    if (event.target.classList.contains('form-check-input')) {
         filterData();
-        if(cardListPast.length === 0){
+        if (filteredData.length == 0) {
             const notFound = "Cards no found, please try with another word";
             cardList.innerHTML = `<div class="alert alert-danger" role="alert">${notFound}</div>
             <a href="./past.html" class="btn btn-primary" id="no-foundC">Return</a>`
-        }else{
-            cardsPast(cardListPast);
+        } else {
+            cardsPast(filteredData);
         }
-        
     }
 });
 
-link_pressed.addEventListener('click', function(event){ 
+input.addEventListener('keypress', function(event) { 
+    if (event.key === "Enter") {
+        filterData();
+        if (filteredData.length == 0) {
+            const notFound = "Cards no found, please try with another word";
+            cardList.innerHTML = `<div class="alert alert-danger" role="alert">${notFound}</div>
+            <a href="./past.html" class="btn btn-primary" id="no-foundC">Return</a>`
+        } else {
+            cardsPast(filteredData);
+        }
+    }
+});
+
+link_pressed.addEventListener('click', function(event) {
     event.preventDefault();
     filterData();
-    if(cardListPast.length === 0){
+    if (filteredData.length == 0) {
         const notFound = "Cards no found, please try with another word";
         cardList.innerHTML = `<div class="alert alert-danger" role="alert">${notFound}</div>
-        <a href="./past.html"  class="btn btn-primary" id="no-foundC">Return</a>`
-    }else{
-        cardsPast(cardListPast);
+        <a href="./past.html" class="btn btn-primary" id="no-foundC">Return</a>`
+    } else {
+        cardsPast(filteredData);
     }
 });
 
 
 checkboxes.forEach(function(checkbox){
     checkbox.addEventListener('change', function(){
+        console.log(checkbox.value);
         filterData();
-        const selectedChecks = document.querySelectorAll(".form-check-input:checked");
-        const selectedValuesChecks = Array.from(selectedChecks).map(function(checkbox) {
-            return checkbox.value;
-        });
-        if (selectedValuesChecks.length === 0) {
-            const notFound = "Cards no found, please try with another word";
-            cardList.innerHTML = `<div class="alert alert-danger" role="alert">${notFound}</div>
-            <a href="./past.html" class="btn btn-primary" id="no-foundC">Return</a>`
-        } else {
-            const filteredCheckboxes = Array.from(checkboxes).filter(function(value) {
-                return selectedValuesChecks.includes(value.value)
-            });
-            cardListPast = cardListPast.filter(function(event) {
-                return filteredCheckboxes.map(function(checkbox) {
-                    return checkbox.value;
-                }).includes(event.category)
-            });
-            cardsPast(cardListPast);
-        }
+        cardsPast(filteredData);
     });
 });
 
-// Initial display of cards
+// Initial display of all cards
 cardsPast(cardListPast);
