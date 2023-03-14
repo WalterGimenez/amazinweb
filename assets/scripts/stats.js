@@ -43,10 +43,37 @@ async function showStadistics(){
         console.log("more assistance past " , hiAttendancePast.toFixed(2), "% and the event is ", hiAttNamePast);
         console.log("less assistance past ", lowAttendancePast, "% and the event is ", lowAttNamePast);
 
-        
+        //add title to tbody
+        //test//
+        //select tbody sendond and third, no first
+        const table2Body = document.querySelectorAll("table:nth-child(2) tbody");
+        const table3Body = document.querySelectorAll("table:nth-child(3) tbody");
+
+        //inserted en second tbody a row
+        const newRow = table2Body[0].insertRow();
+        //inserted three columns in the row
+        const cell1 = newRow.insertCell();
+        const cell2 = newRow.insertCell();
+        const cell3 = newRow.insertCell();
+
+        //gave a name in each column
+        cell1.textContent = "Categories";
+        cell2.textContent = "Renues";
+        cell3.textContent = "Percentage of attendance";
+
+        //same code up but with the third tbody (no first one)
+        const newRow3 = table3Body[0].insertRow();
+        const cell13 = newRow3.insertCell();
+        const cell23 = newRow3.insertCell();
+        const cell33 = newRow3.insertCell();
+        cell13.textContent = "Categories";
+        cell23.textContent = "Renues";
+        cell33.textContent = "Percentage of attendance";
+
 
         //filter with upcoming
         cardListUp = allData.filter(date => date.date > datas.currentDate)
+        console.log("los datos de los eventos futuros son")
         console.log(cardListUp);
         
         for (let i = 0; i < cardListUp.length; i++) {
@@ -91,6 +118,93 @@ async function showStadistics(){
             }
         }
         console.log("more capacity ",moreCapacity, "and the name is ",nameMore);
+
+
+    //seeing how many categorys there are upcoming using cardListUp(future events)
+    let onlyCategoriesUp = cardListUp.reduce(function(categories, event) {
+    if (!categories.includes(event.category)) {
+        categories.push(event.category);
+    }
+    return categories;
+    }, []);
+
+    //sort onlyCategoriesUp
+    let sortUp = onlyCategoriesUp.sort()
+    //showing up's categories
+    console.log(sortUp)
+
+    //seeing how many categorys there are past using cardListPast(past events)
+    let onlyCategoriesPast = cardListPast.reduce(function(categories, event) {
+        if (!categories.includes(event.category)) {
+            categories.push(event.category);
+        }
+        return categories;
+        }, []);
+
+    //sort onlyCategoriesPast
+    let sortPast = onlyCategoriesPast.sort()
+    //showing past`s categories
+    console.log(sortPast);
+
+
+    const tableSecond =  document.getElementById('upcoming')
+    const tableThird = document.getElementById('past')
+
+    function generateRowsUp(){
+        
+        let rows = ""
+        rows += `<tr>
+        <th>Categories</th>
+        <th>Renues</th>
+        <th>Percentage of attendance</th>
+        </tr>`
+        for (const datArray of onlyCategoriesUp) {
+            rows += `<tr>
+            <td>${datArray}</td>
+            <td>something</td>
+            <td>something</td>
+            
+        </tr>`
+        
+        }
+        tableSecond.innerHTML = rows
+        
+    }
+    generateRowsUp()
+
+    function generateRowsPast(){
+        let rowsPast = ""
+        rowsPast += `<tr>
+        <th>Categories</th>
+        <th>Renues</th>
+        <th>Percentage of attendance</th>
+        </tr>`
+
+        for (const arrayPast of onlyCategoriesPast) {
+            rowsPast += `<tr>
+            <td>${arrayPast}</td>
+            <td>something</td>
+            <td>something</td>
+            
+        </tr>` 
+        }
+        tableThird.innerHTML = rowsPast
+    }
+    generateRowsPast()
+    
+    //testing adding all prices by category upcoming
+    var categoriesAllUp = {};
+for (var i = 0; i < cardListUp.length; i++) {
+  var event = cardListUp[i];
+  if (!categoriesAllUp[event.category]) {
+    categoriesAllUp[event.category] = 0;
+  }
+  categoriesAllUp[event.category] += (event.price * event.estimate);
+}
+
+console.log(categoriesAllUp);
+
+
     })
     .catch(error =>{
         console.log(error);
