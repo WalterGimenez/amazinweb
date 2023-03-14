@@ -32,10 +32,6 @@ function allCards(data){
     }
     cardList.innerHTML = html_page;
 }
-// //capturing id
-// function viewDetailCard(id){
-//     window.location.href = `./detail.html?id=${id}`//send id for detail.html
-// }
 
 //seeing how many categorys there are.
 let onlyCategories = allData.reduce(function(categories, event) {
