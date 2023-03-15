@@ -195,8 +195,7 @@ async function showStadistics(){
         console.log("Category:", category,);
         console.log("Total refund:", totalRefund);
         console.log("Total percent:", totalPercent.toFixed(2),"%");
-        // console.log("Total capacity:", totalCapacity);
-        // console.log("Total estimate:", totalEstimate);
+
 
         console.log(statsResultUp);
     }
@@ -208,7 +207,7 @@ async function showStadistics(){
     }
 
     //for by category past
-    console.log("aca es la lista de pasado ",sortPast);
+    // console.log("aca es la lista de pasado ",sortPast);
 
      //creating an array for table stats for Past
     const statsResultPast =[]
@@ -234,38 +233,6 @@ async function showStadistics(){
         let filteredEventsP = cardListPast.filter(event => event.category.toLowerCase() === sendCateP.toLowerCase());
         statsGralPast(sendCateP,filteredEventsP)
     }
-
-    // console.log("From here is Past");
-    // function statsGralPast(category, events){
-    //     let totalRefund = 0
-    //     let totalPercent = 0
-    //     let totalCapacity = 0
-    //     let totalAssistance = 0
-    //     for (let i = 0; i < events.length; i++) {
-    //         totalRefund += events[i].price * events[i].assistance;
-    //         totalCapacity += events[i].capacity;
-    //         totalAssistance += events[i].assistance;
-    //     }
-        
-    //     totalPercent = (totalAssistance * 100) / totalCapacity;
-    //     statsResultPast.push({category: category, refund: totalRefund, percent: totalPercent.toFixed(2)})
-        
-    //     console.log("Category:", category,);
-    //     console.log("Total refund:", totalRefund);
-    //     console.log("Total percent:", totalPercent.toFixed(2),"%");
-    //     // console.log("Total capacity:", totalCapacity);
-    //     // console.log("Total estimate:", totalEstimate);
-    //     console.log(statsResultPast);
-    // }
-
-
-    // //for by category past
-    
-    // for(i= 0; i < sortPast.length; i++){
-    //     let sendCate =sortPast[i]
-    //     let filteredEvents = cardListPast.filter(event => event.category.toLowerCase() === sendCate.toLowerCase());
-    //     statsGralPast(sendCate, filteredEvents);
-    // }
 
 
     //adding Categories,Renues and Percentage of attendance to the table
@@ -316,9 +283,9 @@ async function showStadistics(){
     
 
     })
-    // .catch(error =>{
-    //     console.log(error);
-    // })
+    .catch(error =>{
+        console.log(error);
+    })
 }
 
 showStadistics()
