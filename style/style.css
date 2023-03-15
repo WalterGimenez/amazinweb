@@ -281,6 +281,10 @@ ul{
     text-align: end;
 }
 
+.center{
+    text-align: center;
+}
+
 .red-size{
     width: 20%;
 }

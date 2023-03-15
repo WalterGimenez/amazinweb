@@ -207,8 +207,6 @@ async function showStadistics(){
     }
 
     //for by category past
-    // console.log("aca es la lista de pasado ",sortPast);
-
      //creating an array for table stats for Past
     const statsResultPast =[]
     
@@ -243,9 +241,9 @@ async function showStadistics(){
         
         let rows = ""
         rows += `<tr>
-        <th>Categories</th>
-        <th>Renues</th>
-        <th>Percentage of attendance</th>
+        <th class="center">Categories</th>
+        <th class="center">Renues</th>
+        <th class="center" >Percentage of attendance</th>
         </tr>`
         for (const datArray of statsResultUp) {
             rows += `<tr >
@@ -264,9 +262,9 @@ async function showStadistics(){
     function generateRowsPast(){
         let rowsPast = ""
         rowsPast += `<tr>
-        <th>Categories</th>
-        <th>Renues</th>
-        <th>Percentage of attendance</th>
+        <th class="center">Categories</th>
+        <th class="center">Renues</th>
+        <th class="center">Percentage of attendance</th>
         </tr>`
 
         for (const arrayPast of statsResultPast) {
