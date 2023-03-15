@@ -119,6 +119,15 @@ async function showStadistics(){
         }
         console.log("more capacity ",moreCapacity, "and the name is ",nameMore);
 
+        //selecting td by id to actualice first file of the table
+        let higthAssist = document.getElementById("hpa")
+        let lowAssist = document.getElementById("lpa")
+        let moreCapac = document.getElementById("mc")
+
+        //transfering to the table higth(hpa) , low(lpa) and more capacity(mc)
+        higthAssist.textContent = nameMore
+        lowAssist.textContent = finalLessAssistance
+        moreCapac.textContent = nameMore
 
     //seeing how many categorys there are upcoming using cardListUp(future events)
     let onlyCategoriesUp = cardListUp.reduce(function(categories, event) {
@@ -145,6 +154,25 @@ async function showStadistics(){
     let sortPast = onlyCategoriesPast.sort()
     //showing past`s categories
     console.log(sortPast);
+
+    //making a fuction that allow to see how many categories there are in past or upcoming
+    function gralCategories(categPastOrUp){
+        let gralCategories = categPastOrUp.reduce(function(categories, event) {
+            if (!categories.includes(event.category)) {
+                categories.push(event.category);
+            }
+            return categories;
+            }, []);
+    
+        //sort onlyCategoriesPast
+        let sortGral = gralCategories.sort()
+        //showing past`s categories
+        console.log(sortGral);
+    }
+    //using the gral function of categories and showing in console
+    gralCategories(cardListUp)
+    gralCategories(cardListPast)
+
 
 
     const tableSecond =  document.getElementById('upcoming')
