@@ -277,6 +277,10 @@ ul{
     margin-top: 0;
 }
 
+.left{
+    text-align: end;
+}
+
 .red-size{
     width: 20%;
 }

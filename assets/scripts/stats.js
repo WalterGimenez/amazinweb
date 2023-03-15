@@ -248,10 +248,10 @@ async function showStadistics(){
         <th>Percentage of attendance</th>
         </tr>`
         for (const datArray of statsResultUp) {
-            rows += `<tr>
+            rows += `<tr >
             <td>${datArray.category}</td>
-            <td>${datArray.refund}</td>
-            <td>${datArray.percent}</td>
+            <td class="left">${datArray.refund}$</td>
+            <td class="left">${datArray.percent}%</td>
             
         </tr>`
         
@@ -272,8 +272,8 @@ async function showStadistics(){
         for (const arrayPast of statsResultPast) {
             rowsPast += `<tr>
             <td>${arrayPast.category}</td>
-            <td>${arrayPast.refund}</td>
-            <td>${arrayPast.percent}</td>
+            <td class="left">${arrayPast.refund}$</td>
+            <td class="left">${arrayPast.percent}%</td>
             
         </tr>` 
         }
