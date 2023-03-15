@@ -173,8 +173,102 @@ async function showStadistics(){
     gralCategories(cardListUp)
     gralCategories(cardListPast)
 
+    //creating an array for table stats for Upcoming
+    const statsResultUp =[]
 
 
+    function statsGralUp(category, events){
+        console.log("acpa es resultado Upcoming");
+        let totalRefund = 0
+        let totalPercent = 0
+        let totalCapacity = 0
+        let totalEstimate = 0
+        for (let i = 0; i < events.length; i++) {
+            totalRefund += events[i].price * events[i].estimate;
+            totalCapacity += events[i].capacity;
+            totalEstimate += events[i].estimate;
+        }
+        
+        totalPercent = (totalEstimate * 100) / totalCapacity;
+        statsResultUp.push({category: category, refund: totalRefund, percent: totalPercent.toFixed(2)})
+        
+        console.log("Category:", category,);
+        console.log("Total refund:", totalRefund);
+        console.log("Total percent:", totalPercent.toFixed(2),"%");
+        // console.log("Total capacity:", totalCapacity);
+        // console.log("Total estimate:", totalEstimate);
+
+        console.log(statsResultUp);
+    }
+
+    for(i= 0; i < sortUp.length; i++){
+        let sendCate =sortUp[i]
+        let filteredEvents = cardListUp.filter(event => event.category.toLowerCase() === sendCate.toLowerCase());
+        statsGralUp(sendCate, filteredEvents);
+    }
+
+    //for by category past
+    console.log("aca es la lista de pasado ",sortPast);
+
+     //creating an array for table stats for Past
+    const statsResultPast =[]
+    
+    function statsGralPast(category, events){
+        let totalRefundP = 0
+        let totalPercentP = 0
+        let totalCapacityP = 0
+        let totalAssistanceP = 0
+        for(let i = 0; i < events.length; i++){
+            totalRefundP += events[i].price * events[i].assistance
+            totalCapacityP += events[i].capacity
+            totalAssistanceP += events[i].assistance
+        }
+        totalPercentP = (totalAssistanceP * 100) / totalCapacityP
+        statsResultPast.push({category: category, refund: totalRefundP, percent: totalPercentP.toFixed(2)})
+
+        console.log(statsResultPast);
+    }
+
+    for(i = 0; i < sortPast.length; i++){
+        let sendCateP = sortPast[i]
+        let filteredEventsP = cardListPast.filter(event => event.category.toLowerCase() === sendCateP.toLowerCase());
+        statsGralPast(sendCateP,filteredEventsP)
+    }
+
+    // console.log("From here is Past");
+    // function statsGralPast(category, events){
+    //     let totalRefund = 0
+    //     let totalPercent = 0
+    //     let totalCapacity = 0
+    //     let totalAssistance = 0
+    //     for (let i = 0; i < events.length; i++) {
+    //         totalRefund += events[i].price * events[i].assistance;
+    //         totalCapacity += events[i].capacity;
+    //         totalAssistance += events[i].assistance;
+    //     }
+        
+    //     totalPercent = (totalAssistance * 100) / totalCapacity;
+    //     statsResultPast.push({category: category, refund: totalRefund, percent: totalPercent.toFixed(2)})
+        
+    //     console.log("Category:", category,);
+    //     console.log("Total refund:", totalRefund);
+    //     console.log("Total percent:", totalPercent.toFixed(2),"%");
+    //     // console.log("Total capacity:", totalCapacity);
+    //     // console.log("Total estimate:", totalEstimate);
+    //     console.log(statsResultPast);
+    // }
+
+
+    // //for by category past
+    
+    // for(i= 0; i < sortPast.length; i++){
+    //     let sendCate =sortPast[i]
+    //     let filteredEvents = cardListPast.filter(event => event.category.toLowerCase() === sendCate.toLowerCase());
+    //     statsGralPast(sendCate, filteredEvents);
+    // }
+
+
+    //adding Categories,Renues and Percentage of attendance to the table
     const tableSecond =  document.getElementById('upcoming')
     const tableThird = document.getElementById('past')
 
@@ -186,11 +280,11 @@ async function showStadistics(){
         <th>Renues</th>
         <th>Percentage of attendance</th>
         </tr>`
-        for (const datArray of onlyCategoriesUp) {
+        for (const datArray of statsResultUp) {
             rows += `<tr>
-            <td>${datArray}</td>
-            <td>something</td>
-            <td>something</td>
+            <td>${datArray.category}</td>
+            <td>${datArray.refund}</td>
+            <td>${datArray.percent}</td>
             
         </tr>`
         
@@ -208,11 +302,11 @@ async function showStadistics(){
         <th>Percentage of attendance</th>
         </tr>`
 
-        for (const arrayPast of onlyCategoriesPast) {
+        for (const arrayPast of statsResultPast) {
             rowsPast += `<tr>
-            <td>${arrayPast}</td>
-            <td>something</td>
-            <td>something</td>
+            <td>${arrayPast.category}</td>
+            <td>${arrayPast.refund}</td>
+            <td>${arrayPast.percent}</td>
             
         </tr>` 
         }
@@ -220,23 +314,11 @@ async function showStadistics(){
     }
     generateRowsPast()
     
-    //testing adding all prices by category upcoming
-    var categoriesAllUp = {};
-for (var i = 0; i < cardListUp.length; i++) {
-  var event = cardListUp[i];
-  if (!categoriesAllUp[event.category]) {
-    categoriesAllUp[event.category] = 0;
-  }
-  categoriesAllUp[event.category] += (event.price * event.estimate);
-}
-
-console.log(categoriesAllUp);
-
 
     })
-    .catch(error =>{
-        console.log(error);
-    })
+    // .catch(error =>{
+    //     console.log(error);
+    // })
 }
 
 showStadistics()
